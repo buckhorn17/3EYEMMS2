@@ -1,0 +1,62 @@
+.icon {
+    &-community {
+        .image-container {
+            position: relative;
+            width: 111px;
+            height: 111px;
+        }
+
+        .image-container-goTop {
+            position: relative;
+            width: 68px;
+            height: 68px;
+        }
+
+        .normal-image,
+        .hover-image,
+        .normal-image-toTop,
+        .hover-image-toTop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .hover-image {
+            opacity: 0;
+            transform: translateY(-2px);
+        }
+
+        .hover-image-toTop {
+            opacity: 0;
+        }
+
+        &:hover {
+            .normal-image {
+                opacity: 0;
+                transform: translateY(-2px);
+            }
+
+            .hover-image {
+                opacity: 1;
+                transform: translateY(-2px);
+            }
+        }
+
+        &:hover {
+            .normal-image-toTop {
+                opacity: 0;
+            }
+
+            .hover-image-toTop {
+                opacity: 1;
+            }
+        }
+
+    }
+
+    &-dc {
+        pointer-events: none;
+    }
+
+}
