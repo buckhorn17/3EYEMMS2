@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     async function fetchTarotFiles() {
-        const response = await fetch('../layout/tarot-files.json'); // Ensure correct path
+        const response = await fetch('../tarot-files.json'); // Ensure correct path
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
