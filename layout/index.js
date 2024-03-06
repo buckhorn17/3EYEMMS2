@@ -1,6 +1,9 @@
 let tarotButton = document.querySelector(".tarot-button");
 let tarotCards = document.querySelectorAll(".tarot-card-back");
 
+// 使用 import.meta.glob 动态导入图片
+const images = import.meta.glob('/assets/images/card/inFrame/**/*.{png,jpg}', { eager: true });
+
 // 計算已選擇的卡牌數量
 function countSelectedCards() {
     let selectedCount = 0;
@@ -64,16 +67,23 @@ tarotButton.addEventListener("click", function() {
     });
 });
 
-// 定义基础路径
-const basePath = import.meta.env.BASE_URL;
+// 更新圖片路徑函数，现在使用动态导入的图片
+function updateImagePath(modalId, imageIndex) {
+    // 从 images 中找到匹配的图片，注意路径要与 glob 模式匹配
+    const imagePath = Object.keys(images).find(path => path.includes(imageIndex));
 
-// 更新圖片路徑函数，现在使用 basePath 来确保路径正确
-function updateImagePath(path, modalId, fallback, imageIndex) {
-    let imagePath = basePath + path + imageIndex; // 使用 basePath 调整路径
-    let modalBody = document.getElementById(modalId).querySelector(".modal-body img");
-    modalBody.src = imagePath.replace(/\/[^\/]+$/, "/content/" + imageIndex);
-    let resultImage = document.querySelector(`[data-bs-target="#${modalId}"] img`);
-    resultImage.src = imagePath;
+    if (imagePath) {
+        const imageModule = images[imagePath];
+        const imageUrl = imageModule.default; // 使用导入的图片URL
+        
+        // 更新 modal 图片
+        let modalBody = document.getElementById(modalId).querySelector(".modal-body img");
+        modalBody.src = imageUrl;
+        
+        // 更新结果图片
+        let resultImage = document.querySelector(`[data-bs-target="#${modalId}"] img`);
+        resultImage.src = imageUrl;
+    }
 }
 
 // 洗牌函數
