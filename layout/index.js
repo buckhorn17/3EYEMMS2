@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (targetImg && modalImg && selectedFiles[term]) {
                 const baseName = selectedFiles[term].split('-')[0];
                 const fileName = selectedFiles[term];
-                targetImg.src = `/assets/${fileName}`;
+                targetImg.src = `../assets/${fileName}`;
 
                 // 查找与选择的tarot卡片相匹配的content文件
                 const contentFileName = files.find(file => file.startsWith(baseName) && file.includes('-content-'));
                 if (contentFileName) {
-                    modalImg.src = `/assets/${contentFileName}`;
+                    modalImg.src = `../assets/${contentFileName}`;
                 } else {
                     console.error(`No content file found matching base name "${baseName}".`);
                 }
