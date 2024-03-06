@@ -64,10 +64,12 @@ tarotButton.addEventListener("click", function() {
     });
 });
 
+// 定义基础路径
+const basePath = import.meta.env.BASE_URL;
 
-// 更新圖片路徑
+// 更新圖片路徑函数，现在使用 basePath 来确保路径正确
 function updateImagePath(path, modalId, fallback, imageIndex) {
-    let imagePath = path + imageIndex;
+    let imagePath = basePath + path + imageIndex; // 使用 basePath 调整路径
     let modalBody = document.getElementById(modalId).querySelector(".modal-body img");
     modalBody.src = imagePath.replace(/\/[^\/]+$/, "/content/" + imageIndex);
     let resultImage = document.querySelector(`[data-bs-target="#${modalId}"] img`);
