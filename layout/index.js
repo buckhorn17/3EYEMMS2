@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const contentFileName = files.find(file => file.startsWith(baseName) && file.includes('-content-'));
                 if (contentFileName) {
                     // modalImg.src = `../dist/assets/${contentFileName}`; //本機路徑
-                    modalImg.src = `../assets/${contentFileName}`; //雲端路徑
+                    modalImg.src = `/3EYEMMS2/assets/${contentFileName}`; //雲端路徑
                 } else {
                     console.error(`No content file found matching base name "${baseName}".`);
                 }
