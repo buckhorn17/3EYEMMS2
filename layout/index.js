@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function fetchTarotFiles() {
         // const response = await fetch('../dist/layout/json/tarot-files.json'); // 本機路徑
-        const response = await fetch('../dist/layout/json/tarot-files.json'); // 雲端路徑
+        const response = await fetch('../layout/json/tarot-files.json'); // 雲端路徑
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // 查找与选择的tarot卡片相匹配的content文件
                 const contentFileName = files.find(file => file.startsWith(baseName) && file.includes('-content-'));
                 if (contentFileName) {
-                    modalImg.src = `../dist/assets/${contentFileName}`; //本機路徑
+                    // modalImg.src = `../dist/assets/${contentFileName}`; //本機路徑
                     modalImg.src = `../assets/${contentFileName}`; //雲端路徑
                 } else {
                     console.error(`No content file found matching base name "${baseName}".`);
