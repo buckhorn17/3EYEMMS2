@@ -28,12 +28,12 @@ export default defineConfig({
     liveReload(['./layout/**/*.ejs', './pages/**/*.ejs', './pages/**/*.html']),
     ViteEjsPlugin(),
     moveOutputPlugin(),
-    // 使用 rollup-plugin-copy 插件复制文件
+    // 使用 rollup-plugin-copy 插件複製文件
     copy({
       targets: [
-        { src: 'layout/json/tarot-files.json', dest: 'dist/json' } // 确保路径是从项目根目录开始的相对路径
+        { src: 'layout/json/tarot-files.json', dest: 'dist/json' } // 確保路徑是從專案根目錄開始的相對路徑
       ],
-      hook: 'writeBundle', // 在 writeBundle 钩子中执行复制操作
+      hook: 'writeBundle', // 在 writeBundle 中執行複製操作
     }),
   ],
   server: {

@@ -3,20 +3,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const tarotButton = document.querySelector('.tarot-button');
     let selectedCount = 0;
 
-    // 点击卡牌逻辑
+    // 點擊卡牌功能
     tarotCardsBack.forEach(card => {
         card.addEventListener('click', function () {
             if (selectedCount < 3 || this.classList.contains('selected')) {
                 this.classList.toggle('selected');
                 this.style.transform = this.classList.contains('selected') ? 'translateY(-30px)' : 'translateY(0px)';
-                selectedCount = document.querySelectorAll('.tarot-card-back.selected').length; // 修正选中数量的计算
+                selectedCount = document.querySelectorAll('.tarot-card-back.selected').length; // 修正選取數量的計算
             } else {
                 alert('最多只能選擇三枚卡牌。');
             }
         });
     });
 
-    // 点击按钮逻辑
+    // 點擊按鈕功能
     tarotButton.addEventListener('click', function () {
         if (selectedCount !== 3) {
             alert('請選滿三枚卡牌。');
@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchTarotFiles().then(files => {
                 updateImageSources(files);
                 tarotCardsBack.forEach(card => {
-                    card.classList.remove('selected'); // Reset selection
+                    card.classList.remove('selected'); // 重置選擇
                     card.style.transform = 'translateY(0px)';
                 });
-                selectedCount = 0; // 重置选中计数
+                selectedCount = 0; // 重置選取數量
             }).catch(error => console.error('Failed to fetch tarot files:', error));
         }
     });
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateImageSources(files) {
         const terms = ['past', 'present', 'future'];
-        let basePathSet = new Set(); // 用于确保基础路径的唯一性
+        let basePathSet = new Set(); // 用於確保基礎路徑的唯一性
         let selectedFiles = {};
-
-        // 随机选择符合条件的文件，确保基础路径不重复
+    
+        // 隨機選擇符合條件的文件，確保基礎路徑不重複
         terms.forEach(term => {
             let filteredFiles;
             let attempt = 0;
@@ -59,20 +59,29 @@ document.addEventListener('DOMContentLoaded', function () {
                     basePathSet.add(filteredFiles[randomIndex].split('-')[0]);
                 }
                 attempt++;
-            } while (!selectedFiles[term] && attempt < 10); // 防止无限循环
+            } while (!selectedFiles[term] && attempt < 10); // 防止無限循環
         });
-
+    
         terms.forEach((term, index) => {
             const targetImg = document.querySelector(`[data-bs-target="#imageModal-${index + 1}"] img`);
             const modalImg = document.querySelector(`#imageModal-${index + 1} .modal-body img`);
-
+    
             if (targetImg && modalImg && selectedFiles[term]) {
                 const baseName = selectedFiles[term].split('-')[0];
                 const fileName = selectedFiles[term];
                 // targetImg.src = `../dist/assets/${fileName}`; //本機路徑
                 targetImg.src = `/3EYEMMS2/assets/${fileName}`; //雲端路徑
-
-                // 查找与选择的tarot卡片相匹配的content文件
+    
+                // 移除之前可能存在的動畫結束事件監聽器
+                targetImg.removeEventListener('animationend', handleAnimationEnd);
+                
+                // 添加翻轉動畫類
+                targetImg.classList.add('flip-animation');
+                
+                // 監聽動畫結束事件，並在動畫結束後移除動畫類
+                targetImg.addEventListener('animationend', handleAnimationEnd);
+    
+                // 尋找與選擇的tarot卡相符的content文件
                 const contentFileName = files.find(file => file.startsWith(baseName) && file.includes('-content-'));
                 if (contentFileName) {
                     // modalImg.src = `../dist/assets/${contentFileName}`; //本機路徑
@@ -84,5 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error(`Failed to update images for term "${term}". Make sure the elements and file names exist.`);
             }
         });
+    
+        function handleAnimationEnd(event) {
+            event.target.classList.remove('flip-animation');
+            event.target.removeEventListener('animationend', handleAnimationEnd);
+        }
     }
 });
