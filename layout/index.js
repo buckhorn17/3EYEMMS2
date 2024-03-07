@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const baseName = selectedFiles[term].split('-')[0];
                 const fileName = selectedFiles[term];
                 // targetImg.src = `../dist/assets/${fileName}`; //本機路徑
-                targetImg.src = `../assets/${fileName}`; //雲端路徑
+                targetImg.src = `/3EYEMMS2/assets/${fileName}`; //雲端路徑
 
                 // 查找与选择的tarot卡片相匹配的content文件
                 const contentFileName = files.find(file => file.startsWith(baseName) && file.includes('-content-'));
