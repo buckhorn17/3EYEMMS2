@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function fetchTarotFiles() {
         // const response = await fetch('../layout/json/tarot-files.json'); // 本機路徑
-        const response = await fetch('../json/tarot-files.json'); // 雲端路徑
+        const response = await fetch('/json/tarot-files.json'); // 雲端路徑
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
