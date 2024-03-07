@@ -3,8 +3,8 @@ import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { glob } from 'glob';
-
 import liveReload from 'vite-plugin-live-reload';
+import copy from 'rollup-plugin-copy';
 
 function moveOutputPlugin() {
   return {
@@ -23,16 +23,20 @@ function moveOutputPlugin() {
 }
 
 export default defineConfig({
-  // base 的寫法：
-  // base: '/Repository 的名稱/'
   base: '/3EYEMMS2/',
   plugins: [
     liveReload(['./layout/**/*.ejs', './pages/**/*.ejs', './pages/**/*.html']),
     ViteEjsPlugin(),
     moveOutputPlugin(),
+    // 使用 rollup-plugin-copy 插件复制文件
+    copy({
+      targets: [
+        { src: 'layout/json/tarot-files.json', dest: 'dist/layout/json' } // 确保路径是从项目根目录开始的相对路径
+      ],
+      hook: 'writeBundle', // 在 writeBundle 钩子中执行复制操作
+    }),
   ],
   server: {
-    // 啟動 server 時預設開啟的頁面
     open: 'pages/index.html',
   },
   build: {

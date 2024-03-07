@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     async function fetchTarotFiles() {
-        const response = await fetch('../tarot-files.json'); // Ensure correct path
+        const response = await fetch('../dist/layout/json/tarot-files.json'); // 本機路徑
+        // const response = await fetch('../dist/layout/json/tarot-files.json'); // 雲端路徑
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -68,12 +69,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (targetImg && modalImg && selectedFiles[term]) {
                 const baseName = selectedFiles[term].split('-')[0];
                 const fileName = selectedFiles[term];
-                targetImg.src = `../assets/${fileName}`;
+                targetImg.src = `../dist/assets/${fileName}`;
+                // targetImg.src = `../assets/${fileName}`; //雲端路徑
 
                 // 查找与选择的tarot卡片相匹配的content文件
                 const contentFileName = files.find(file => file.startsWith(baseName) && file.includes('-content-'));
                 if (contentFileName) {
-                    modalImg.src = `../assets/${contentFileName}`;
+                    modalImg.src = `../dist/assets/${contentFileName}`;
+                    // modalImg.src = `../assets/${contentFileName}`; //雲端路徑
                 } else {
                     console.error(`No content file found matching base name "${baseName}".`);
                 }
