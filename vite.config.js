@@ -31,7 +31,7 @@ export default defineConfig({
     // 使用 rollup-plugin-copy 插件复制文件
     copy({
       targets: [
-        { src: 'layout/json/tarot-files.json', dest: 'dist/layout/json' } // 确保路径是从项目根目录开始的相对路径
+        { src: 'layout/json/tarot-files.json', dest: 'dist/json' } // 确保路径是从项目根目录开始的相对路径
       ],
       hook: 'writeBundle', // 在 writeBundle 钩子中执行复制操作
     }),
