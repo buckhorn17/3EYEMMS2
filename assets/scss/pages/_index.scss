@@ -50,20 +50,25 @@
   }
 
   &-tarot-bg {
-    position: absolute;
-    background: url(/assets/images/website-16.png) no-repeat;
-    background-size: cover;
-    height: 950px;
-    width: 100%;
-    z-index: -1;
-
-    @media (max-width: 768px) {
-      height: 656px;
+    &::before{
+      content: "";
+      position: absolute;
+      background: url(/assets/images/website-16.png) no-repeat;
+      height: 950px;
+      width: 100%;
+      z-index: -1;
+      @media (max-width: 768px) {
+        height: 656px;
+      }
+  
+      @media (max-width: 375px) {
+        height: 1639px;
+        transform: translateY(20px);
+      }
     }
 
-    @media (max-width: 375px) {
-      height: 1804px;
-    }
+
+
   }
 
   &-tarot-drawcard {

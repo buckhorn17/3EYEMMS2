@@ -59,4 +59,25 @@
         pointer-events: none;
     }
 
+    &-title {
+        transition: 0.2s;
+        transform: translateY(0px);
+        opacity: 1;
+
+        &:hover {
+            transform: translateY(-2px);
+            -webkit-filter: contrast(92%);
+            filter: contrast(92%);
+        }
+    }
+
+    &-brightness {
+        transition: 0.2s;
+
+        &:hover {
+            -webkit-filter: brightness(110%);
+            filter: brightness(110%);
+        }
+    }
+
 }
