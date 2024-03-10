@@ -20,6 +20,13 @@
 
 }
 
+.title-width{
+    width: 85%;
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+}
+
 .zindex{
     &-1{
         z-index: 1;

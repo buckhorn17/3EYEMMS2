@@ -4,6 +4,10 @@
     background-position: top center;
     padding: 300px 0px;
     box-shadow: inset 0px -50px 30px rgba(61, 54, 71, 0.5);
+
+    @media (max-width: 613px) {
+      padding: 200px 0px;
+    }
   }
 
   &-col {
@@ -23,67 +27,121 @@
   }
 
   &-tarot-bg {
+    content: "";
+    position: absolute;
+    background: url(/3EYEMMS2/assets/images/website-17.png);
+    background-size: cover;
+    transform: translateY(-1350px);
+    height: 5100px;
+    width: 100%;
+    z-index: -1;
+
+    @media (max-width: 1199px) {
+      transform: translateY(-1080px);
+      height: 3850px;
+    }
+
+    @media (max-width: 991px) {
+      transform: translateY(-910px);
+      height: 3080px;
+    }
+
+    @media (max-width: 767px) {
+      transform: translateY(-885px);
+      height: 2560px;
+    }
+
+    @media (max-width: 613px) {
+      transform: translateY(-1500px);
+      height: 3180px;
+    }
+
+    @media (max-width: 454px) {
+      transform: translateY(-1680px);
+      height: 3020px;
+    }
+
+    @media (max-width: 430px) {
+      transform: translateY(-1620px);
+      height: 2900px;
+    }
+
+    @media (max-width: 420px) {
+      transform: translateY(-1600px);
+      height: 2850px;
+  }
+
+    @media (max-width: 375px) {
+      transform: translateY(-1490px);
+      height: 2620px;
+    }
+
     &::before {
       content: "";
-      position: absolute;
-      background: url(/3EYEMMS2/assets/images/website-16.png) no-repeat;
-
-      height: 400px;
+      background: url(/assets/images/website-18.png) no-repeat;
+      background-size: contain;
       width: 100%;
+      height: 301px;
+      position: absolute;
       z-index: -1;
-      transform: translateY(-200px);
+    }
+
+    &::after {
+      content: "";
+      background: url(/assets/images/website-18.png) no-repeat;
+      background-size: contain;
+      width: 100%;
+      height: 301px;
+      bottom: 0;
+      position: absolute;
+      transform: scale(-1);
+      z-index: -1;
     }
 
   }
 
   &-footer-bg {
-    &::before {
-      content: "";
-      position: absolute;
-      background: url(/3EYEMMS2/assets/images/website-14.png) no-repeat;
+    content: "";
+    position: absolute;
+    background: url(/3EYEMMS2/assets/images/website-15.png);
+    background-size: cover;
+    background-position-y: bottom;
+    transform: translateY(4180px);
+    height: 540px;
+    width: 100%;
+    z-index: -1;
 
-      /* background-position-y: 692px; */
-      height: 540px;
-      width: 100%;
-      transform: translateY(750px);
-      z-index: -1;
+    @media (max-width: 1199px) {
+      transform: translateY(3240px);
+    }
+
+    @media (max-width: 991px) {
+      transform: translateY(2700px);
+    }
+
+    @media (max-width: 768px) {
+      transform: translateY(2570px);
+    }
+
+    @media (max-width: 767px) {
+      transform: translateY(2100px);
+    }
+
+    @media (max-width: 454px) {
+      transform: translateY(1940px);
+    }
+
+    @media (max-width: 430px) {
+      transform: translateY(1870px);
+      height: 565px;
+    }
+
+    @media (max-width: 375px) {
+      transform: translateY(1710px);
+      height: 635px;
     }
 
   }
-
-
-
-
-
-
-  &-divination {
-
-
-    &-bg {
-      &::before {
-        content: "";
-        position: absolute;
-        background: url(/assets/images/website-14.png) no-repeat;
-        background-position-y: 692px;
-        height: 1620px;
-        width: 100%;
-        z-index: -1;
-
-        @media (max-width: 1199px) {
-          height: 1400px;
-        }
-
-        @media (max-width: 991px) {
-          background-position-y: 400px;
-          height: 800px;
-        }
-
-      }
-    }
-
-  }
-
-
 
   &-tarot {
 
@@ -94,8 +152,6 @@
       }
     }
 
-
-
     .tarot-card-front {
       max-width: 150px;
       margin-left: -74px;
@@ -105,7 +161,6 @@
       &:hover {
         transform: translateY(-30px);
       }
-
 
       @media (max-width: 991px) {
         max-width: 92px;
@@ -118,25 +173,6 @@
 
     }
 
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

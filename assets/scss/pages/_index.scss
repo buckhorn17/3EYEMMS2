@@ -1,16 +1,11 @@
 .index {
   &-banner {
-
     background: url('/assets/images/website-15.png');
     background-size: cover;
     background-position: 10% 50%;
     padding-top: 74px;
     padding-bottom: 25px;
   }
-
-
-
-
 
   &-tarot {
 
@@ -31,10 +26,6 @@
       &:hover {
         filter: drop-shadow(0px 0px 8px $warning-100);
       }
-
-    //   &.clicked {
-    //     transform: translateY(-30px);
-    // }
 
       @media (max-width: 991px) {
         max-width: 92px;
@@ -221,20 +212,12 @@
         }
       }
 
-
     }
 
   }
 
 
   &-info {
-    // height: 1130px;
-    // @media (max-width: 1199px) {
-    //   height: 600px;
-    // }
-    // @media (max-width: 767px) {
-    //   height: 600px;
-    // }
 
     &-bg{
       &::before{
@@ -257,11 +240,6 @@
 
       }
     }
-
-
-
-
-
 
   }
 
