@@ -20,6 +20,7 @@
     "bootstrap": "^5.2.3",
     "gh-pages": "^5.0.0",
     "glob": "^10.2.2",
+    "lazyload": "^2.0.0-rc.2",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
     "vite-plugin-live-reload": "^3.0.2"
