@@ -5,6 +5,11 @@
     padding: 300px 0px;
     box-shadow: inset 0px -50px 30px rgba(61, 54, 71, 0.5);
 
+    @media (min-width: 1921px) {
+      background-size: cover;
+    }
+
+
     @media (max-width: 613px) {
       padding: 200px 0px;
     }
@@ -106,38 +111,12 @@
     background: url(/assets/images/website-15.png);
     background-size: cover;
     background-position-y: bottom;
-    transform: translateY(4180px);
     height: 540px;
     width: 100%;
     z-index: -1;
 
-    @media (max-width: 1199px) {
-      transform: translateY(3240px);
-    }
-
-    @media (max-width: 991px) {
-      transform: translateY(2700px);
-    }
-
-    @media (max-width: 768px) {
-      transform: translateY(2570px);
-    }
-
-    @media (max-width: 767px) {
-      transform: translateY(2100px);
-    }
-
-    @media (max-width: 454px) {
-      transform: translateY(1940px);
-    }
-
     @media (max-width: 430px) {
-      transform: translateY(1870px);
-      height: 565px;
-    }
-
-    @media (max-width: 375px) {
-      transform: translateY(1710px);
+      transform: translateY(-65px);
       height: 635px;
     }
 

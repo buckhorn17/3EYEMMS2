@@ -51,11 +51,14 @@
       @media (max-width: 768px) {
         height: 656px;
       }
-  
-      @media (max-width: 375px) {
+      @media (max-width: 767px) {
+        height: 520px;
+      }
+      @media (max-width: 575px) {
         height: 1639px;
         transform: translateY(20px);
       }
+  
     }
 
 
@@ -223,19 +226,33 @@
       &::before{
         content: "";
         position: absolute;
-        background: url(/assets/images/website-14.png) no-repeat;
+        background: url(/3EYEMMS2/assets/images/website-15.png) repeat;
         background-size: cover;
-        background-position-y: 692px;
-        height: 1620px;
+        transform: translateY(700px);
+        height: 1020px;
         width: 100%;
         z-index: -1;
 
+        @media (max-width: 1319px) {
+          transform: translateY(480px);
+        }
         @media (max-width: 1199px) {
-          height: 1400px;
+          height: 600px;
         }
         @media (max-width: 991px) {
-          background-position-y: 400px;
-          height: 800px;
+          height: 400px;
+        }
+        @media (max-width: 768px) {
+          transform: translateY(660px);
+          height: 780px;
+        }
+        @media (max-width: 767px) {
+          transform: translateY(420px);
+          height: 730px;
+        }
+        @media (max-width: 575px) {
+          transform: translateY(300px);
+          height: 2640px;
         }
 
       }
